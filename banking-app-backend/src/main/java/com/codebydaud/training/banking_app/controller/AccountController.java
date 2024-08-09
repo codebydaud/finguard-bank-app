@@ -1,7 +1,6 @@
 package com.codebydaud.training.banking_app.controller;
 
 import com.codebydaud.training.banking_app.dto.FundTransferRequest;
-import com.codebydaud.training.banking_app.dto.UserResponse;
 import com.codebydaud.training.banking_app.service.AccountService;
 import com.codebydaud.training.banking_app.service.TransactionService;
 import com.codebydaud.training.banking_app.util.ApiMessages;

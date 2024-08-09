@@ -150,7 +150,7 @@ public class AdminControllerTests extends BaseTest {
         val updatedUser = createUser();
         val accountNumber = userDetails.get("accountNumber");
         mockMvc.perform(MockMvcRequestBuilders
-                        .put(String.format("/api/v1/accounts/%s", accountNumber))
+                        .patch(String.format("/api/v1/accounts/%s", accountNumber))
                         .contentType(MediaType.APPLICATION_JSON)
                         .header("Authorization", "Bearer " + token)
                         .content(JsonUtil.toJson(updatedUser)))
@@ -173,7 +173,7 @@ public class AdminControllerTests extends BaseTest {
         val accountNumber = userDetails.get("accountNumber");
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .put(String.format("/api/v1/accounts/%s", accountNumber))
+                        .patch(String.format("/api/v1/accounts/%s", accountNumber))
                         .contentType(MediaType.APPLICATION_JSON)
                         .header("Authorization", "Bearer " + token)
                         .content(JsonUtil.toJson(updatedUser)))
@@ -191,7 +191,7 @@ public class AdminControllerTests extends BaseTest {
         val accountNumber = userDetails.get("accountNumber");
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .put(String.format("/api/v1/accounts/%s", accountNumber))
+                        .patch(String.format("/api/v1/accounts/%s", accountNumber))
                         .contentType(MediaType.APPLICATION_JSON)
                         .header("Authorization", "Bearer " + token)
                         .content(JsonUtil.toJson(updatedUser)))
@@ -209,7 +209,7 @@ public class AdminControllerTests extends BaseTest {
         val accountNumber = userDetails.get("accountNumber");
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .put(String.format("/api/v1/accounts/%s", accountNumber))
+                        .patch(String.format("/api/v1/accounts/%s", accountNumber))
                         .contentType(MediaType.APPLICATION_JSON)
                         .header("Authorization", "Bearer " + token)
                         .content(JsonUtil.toJson(updatedUser)))
@@ -227,7 +227,7 @@ public class AdminControllerTests extends BaseTest {
         val accountNumber = userDetails.get("accountNumber");
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .put(String.format("/api/v1/accounts/%s", accountNumber))
+                        .patch(String.format("/api/v1/accounts/%s", accountNumber))
                         .contentType(MediaType.APPLICATION_JSON)
                         .header("Authorization", "Bearer " + token)
                         .content(JsonUtil.toJson(updatedUser)))
@@ -245,7 +245,7 @@ public class AdminControllerTests extends BaseTest {
         val accountNumber = userDetails.get("accountNumber");
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .put(String.format("/api/v1/accounts/%s", accountNumber))
+                        .patch(String.format("/api/v1/accounts/%s", accountNumber))
                         .contentType(MediaType.APPLICATION_JSON)
                         .header("Authorization", "Bearer " + token)
                         .content(JsonUtil.toJson(updatedUser)))
@@ -260,7 +260,7 @@ public class AdminControllerTests extends BaseTest {
         val updatedUser = createUser();
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .put("/api/v1/accounts/7321832468")
+                        .patch("/api/v1/accounts/7321832468")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(JsonUtil.toJson(updatedUser)))
                 .andExpect(MockMvcResultMatchers.status().isUnauthorized());

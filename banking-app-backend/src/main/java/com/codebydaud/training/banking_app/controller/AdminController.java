@@ -4,7 +4,6 @@ import com.codebydaud.training.banking_app.dto.LoginRequest;
 import com.codebydaud.training.banking_app.entity.User;
 import com.codebydaud.training.banking_app.exception.InvalidTokenException;
 import com.codebydaud.training.banking_app.service.AdminService;
-import com.codebydaud.training.banking_app.util.ApiMessages;
 import com.codebydaud.training.banking_app.util.JsonUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
@@ -50,7 +49,7 @@ public class AdminController {
     }
 
     @PreAuthorize("hasAuthority('admin')")
-    @PutMapping("/accounts/{accountNumber}")
+    @PatchMapping("/accounts/{accountNumber}")
     public ResponseEntity<String> updateUser(@PathVariable String accountNumber, @RequestBody User user) {
         return adminService.updateUser(accountNumber, user);
     }

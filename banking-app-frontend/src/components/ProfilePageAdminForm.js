@@ -64,7 +64,7 @@ export default function ProfilePageAdmin() {
   };
 
   const validatePhoneNumber = (phoneNumber) => {
-    const phoneRegex = /^[0-9]{10}$/; 
+    const phoneRegex = /^[0-9]{10}$/;
     return phoneRegex.test(phoneNumber);
   };
 
@@ -77,7 +77,6 @@ export default function ProfilePageAdmin() {
   const handleSaveClick = async (e) => {
     e.preventDefault();
 
-    
     if (!email || !address || !phoneNumber) {
       setError("Please fill out all required fields.");
       return;
@@ -96,18 +95,15 @@ export default function ProfilePageAdmin() {
     }
 
     try {
-      setError("");
       const updateData = {
-        name,
         email,
         address,
         phoneNumber,
-        countryCode,
       };
       if (newPassword) {
         updateData.password = newPassword;
       }
-      await axios.put(
+      await axios.patch(
         `http://localhost:8080/api/v1/accounts/${accountNumber}`,
         updateData,
         {
@@ -260,7 +256,7 @@ export default function ProfilePageAdmin() {
                 border: "none",
                 background: "transparent",
                 cursor: "pointer",
-                padding: "0", 
+                padding: "0",
               }}
             >
               <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
