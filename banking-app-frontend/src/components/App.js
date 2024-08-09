@@ -65,7 +65,7 @@ export default function App() {
               }
             />
             <Route
-              path="/profiles/:accountNumber"
+              path="/:accountNumber/profile"
               element={
                 <PrivateRoute adminOnly>
                   <ProfilePageAdmin />
@@ -73,7 +73,7 @@ export default function App() {
               }
             />
             <Route
-              path="/transactions/:accountNumber"
+              path="/:accountNumber/transactions"
               element={
                 <PrivateRoute adminOnly>
                   <AdminTransactionsPageWrapper />

@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
         user.setRole("customer");
         val savedUser = saveUserWithAccount(user);
         return ResponseEntity
-                .status(HttpStatus.CREATED)
+                .status(HttpStatus.CREATED)  // Set status to 201 Created
                 .body(JsonUtil.toJson(new UserResponse(savedUser)));
     }
 

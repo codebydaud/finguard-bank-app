@@ -42,11 +42,11 @@ export default function AdminDashboard() {
   }, [navigate]);
 
   const handleViewClick = (accountNumber) => {
-    navigate(`/profiles/${accountNumber}`);
+    navigate(`/${accountNumber}/profile`);
   };
 
   const handleViewTransactionsClick = (accountNumber) => {
-    navigate(`/transactions/${accountNumber}`);
+    navigate(`/${accountNumber}/transactions`);
   };
 
   const handleDeleteClick = async (accountNumber) => {
