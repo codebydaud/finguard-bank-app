@@ -1,0 +1,152 @@
+databaseChangeLog:
+  - changeSet:
+      id: schema-user-0.0.1
+      author: banking app team
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: user_id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                      primaryKey: true
+                      nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: country_code
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: phone_number
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: address
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: role
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: data-user-0.0.1
+      author: banking app team
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: Mansoor
+              - column:
+                  name: email
+                  value: admin@gmail.com
+              - column:
+                  name: country_code
+                  value: 'PK'
+              - column:
+                  name: phone_number
+                  value: '3497777777'
+              - column:
+                  name: address
+                  value: House No, 15
+              - column:
+                  name: password
+                  value: '$2a$12$cCrMX1q3tIEU9aSVrHcYk.kz8u2liWO4HJMN0rlhqoe3tF0Ze6bgO'
+              - column:
+                  name: role
+                  value: admin
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: Daud
+              - column:
+                  name: email
+                  value: daudrizvi@gmail.com
+              - column:
+                  name: country_code
+                  value: 'PK'
+              - column:
+                  name: phone_number
+                  value: '3497777778'
+              - column:
+                  name: address
+                  value: House No, 30
+              - column:
+                  name: password
+                  value: '$2a$12$cCrMX1q3tIEU9aSVrHcYk.kz8u2liWO4HJMN0rlhqoe3tF0Ze6bgO'
+              - column:
+                  name: role
+                  value: customer
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: Ahmad
+              - column:
+                  name: email
+                  value: ahmad@gmail.com
+              - column:
+                  name: country_code
+                  value: 'PK'
+              - column:
+                  name: phone_number
+                  value: '3497777779'
+              - column:
+                  name: address
+                  value: House No, 31
+              - column:
+                  name: password
+                  value: '$2a$12$cCrMX1q3tIEU9aSVrHcYk.kz8u2liWO4HJMN0rlhqoe3tF0Ze6bgO'
+              - column:
+                  name: role
+                  value: customer
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: Ali
+              - column:
+                  name: email
+                  value: ali@gmail.com
+              - column:
+                  name: country_code
+                  value: 'PK'
+              - column:
+                  name: phone_number
+                  value: '3497777775'
+              - column:
+                  name: address
+                  value: House No, 32
+              - column:
+                  name: password
+                  value: '$2a$12$cCrMX1q3tIEU9aSVrHcYk.kz8u2liWO4HJMN0rlhqoe3tF0Ze6bgO'
+              - column:
+                  name: role
+                  value: customer
