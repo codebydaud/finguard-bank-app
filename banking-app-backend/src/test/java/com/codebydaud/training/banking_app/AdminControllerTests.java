@@ -277,7 +277,7 @@ public class AdminControllerTests extends BaseTest {
                         .header("Authorization", "Bearer " + token)
                         .with(SecurityMockMvcRequestPostProcessors.user("admin@gmail.com")
                                 .authorities(new SimpleGrantedAuthority("admin"))))
-                .andExpect(MockMvcResultMatchers.status().isOk());
+                .andExpect(MockMvcResultMatchers.status().isNoContent());
     }
 
     @Test

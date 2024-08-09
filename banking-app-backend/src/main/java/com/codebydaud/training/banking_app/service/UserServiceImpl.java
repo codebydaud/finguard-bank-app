@@ -11,6 +11,7 @@ import com.codebydaud.training.banking_app.util.JsonUtil;
 import com.codebydaud.training.banking_app.util.ValidationUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -38,7 +39,9 @@ public class UserServiceImpl implements UserService {
         encodePassword(user);
         user.setRole("customer");
         val savedUser = saveUserWithAccount(user);
-        return ResponseEntity.ok(JsonUtil.toJson(new UserResponse(savedUser)));
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(JsonUtil.toJson(new UserResponse(savedUser)));
     }
 
     @Override

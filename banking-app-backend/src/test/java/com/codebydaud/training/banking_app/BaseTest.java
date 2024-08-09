@@ -136,7 +136,7 @@ public abstract class BaseTest {
                         .post("/api/v1/users")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(JsonUtil.toJson(user)))
-                .andExpect(MockMvcResultMatchers.status().isOk());
+                .andExpect(MockMvcResultMatchers.status().isCreated());
         return user;
     }
 

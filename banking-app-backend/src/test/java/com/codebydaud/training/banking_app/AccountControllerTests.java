@@ -30,7 +30,7 @@ public class AccountControllerTests extends BaseTest {
                         .content(JsonUtil.toJson(fundTransferRequest))
                 .with(SecurityMockMvcRequestPostProcessors.user(userDetails.get("accountNumber"))
                         .authorities(new SimpleGrantedAuthority("customer"))))
-                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andExpect(MockMvcResultMatchers.content()
                         .string(ApiMessages.CASH_TRANSFER_SUCCESS.getMessage()));
     }
@@ -185,7 +185,7 @@ public class AccountControllerTests extends BaseTest {
                         .content(JsonUtil.toJson(fundTransferRequest))
                         .with(SecurityMockMvcRequestPostProcessors.user(userDetails.get("accountNumber"))
                                 .authorities(new SimpleGrantedAuthority("customer"))))
-                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andExpect(MockMvcResultMatchers.content().string(ApiMessages.CASH_TRANSFER_SUCCESS.getMessage()));
 
         mockMvc.perform(MockMvcRequestBuilders

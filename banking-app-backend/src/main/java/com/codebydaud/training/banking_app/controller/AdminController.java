@@ -4,9 +4,11 @@ import com.codebydaud.training.banking_app.dto.LoginRequest;
 import com.codebydaud.training.banking_app.entity.User;
 import com.codebydaud.training.banking_app.exception.InvalidTokenException;
 import com.codebydaud.training.banking_app.service.AdminService;
+import com.codebydaud.training.banking_app.util.ApiMessages;
 import com.codebydaud.training.banking_app.util.JsonUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -57,7 +59,10 @@ public class AdminController {
     @DeleteMapping("/accounts/{accountNumber}")
     public ResponseEntity<String> deleteAccount(@PathVariable String accountNumber) {
         adminService.deleteAccount(accountNumber);
-        return ResponseEntity.ok("Account deleted successfully.");
+
+        return ResponseEntity
+                .status(HttpStatus.NO_CONTENT)
+                .body("Account deleted successfully.");
     }
 
     @PreAuthorize("hasAuthority('admin')")
