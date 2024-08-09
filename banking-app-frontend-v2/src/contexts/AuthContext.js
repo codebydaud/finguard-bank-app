@@ -30,23 +30,22 @@ export function AuthProvider({ children }) {
     }
   };
 
-   const fetchUserBalance = async () => {
-     const token = localStorage.getItem("userAuthToken");
-     if (token) {
-       try {
-         const response = await axios.get(
-           "http://localhost:8080/api/v1/users/balance",
-           {
-             headers: { Authorization: `Bearer ${token}` },
-           }
-         );
-         updateCurrentUserField("balance", response.data.balance);
-       } catch (err) {
-         console.error("Failed to fetch balance:", err);
-       }
-     }
-   };
-
+  const fetchUserBalance = async () => {
+    const token = localStorage.getItem("userAuthToken");
+    if (token) {
+      try {
+        const response = await axios.get(
+          "http://localhost:8080/api/v1/users/balance",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+        updateCurrentUserField("balance", response.data.balance);
+      } catch (err) {
+        console.error("Failed to fetch balance:", err);
+      }
+    }
+  };
 
   useEffect(() => {
     if (needsProfileUpdate) {
@@ -68,7 +67,7 @@ export function AuthProvider({ children }) {
       const { token } = response.data;
       localStorage.setItem("userAuthToken", token);
       await fetchUserProfile();
-      
+      console.log("Navigating to /users/dashboard");
       navigate("/users/dashboard", { replace: true });
     } catch {
       throw new Error("Invalid credentials");
@@ -90,7 +89,6 @@ export function AuthProvider({ children }) {
       throw new Error("Invalid credentials");
     }
   };
-
 
   const logout = async () => {
     const userToken = localStorage.getItem("userAuthToken");

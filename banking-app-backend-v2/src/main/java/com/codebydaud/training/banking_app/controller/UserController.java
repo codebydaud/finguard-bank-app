@@ -11,6 +11,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/v1/users")
 public class UserController {
@@ -34,7 +36,7 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest)
             throws InvalidTokenException {
-        return userService.login(loginRequest,null);
+        return userService.login(loginRequest, null);
     }
 
     @PreAuthorize("hasAuthority('customer')")
