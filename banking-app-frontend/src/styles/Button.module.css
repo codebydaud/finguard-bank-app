@@ -1,0 +1,35 @@
+.button {
+  background: var(--successGreen);
+  color: var(--fontPrimary);
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 0px;
+  margin-top: 20px;
+}
+
+.button:hover {
+  background: var(--fontPrimary);
+  color: #fff;
+}
+
+.button:hover span {
+  color: #fff;
+}
+
+/* New class for delete button */
+.delete {
+  background: red;
+  color: var(--fontPrimary);
+}
+
+.delete:hover {
+  background: darkred; /* Darker red on hover */
+}

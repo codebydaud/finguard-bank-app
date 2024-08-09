@@ -1,0 +1,36 @@
+.dashboardGrid {
+  width: 100vw;
+  max-width: 1170px;
+  margin: 5rem auto;
+  display: grid;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .dashboardGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.dashboardItem {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.dashboardItem img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.dashboardItem .link {
+  font-size: 20px;
+  color: #0000ff; 
+  text-decoration: none; 
+}
+
+.dashboardItem .link:hover {
+  color: #0000b2; 
+  text-decoration: underline; 
+}
