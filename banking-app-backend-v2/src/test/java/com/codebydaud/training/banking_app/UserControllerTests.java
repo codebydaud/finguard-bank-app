@@ -5,6 +5,7 @@ import com.codebydaud.training.banking_app.dto.LoginRequest;
 import com.codebydaud.training.banking_app.service.TokenService;
 import com.codebydaud.training.banking_app.util.ApiMessages;
 import com.codebydaud.training.banking_app.util.JsonUtil;
+import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.hamcrest.core.StringContains;
 import org.junit.jupiter.api.Assertions;
@@ -16,6 +17,7 @@ import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequ
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+@Slf4j
 public class UserControllerTests extends BaseTest {
 
     @Autowired
@@ -393,7 +395,8 @@ public class UserControllerTests extends BaseTest {
                 .getAccount()
                 .getAccountNumber();
 
-        val loginRequest = new LoginRequest(accountNumber, getRandomPassword());
+
+        val loginRequest = new LoginRequest(accountNumber, "a6f5f5f066ba27be5e37605a3ac6db39:52+k05cNYO08XT5iaOGPWLKcqVfUKl60eBp2/yd9Y2aoFV2nq4Pw2z5M/4XngjhXkeKgEBglt3uNOc0ETbu6q3J804htJQMzp9yssCikvSKmalIQwCT4rwzoFXxQtWriZ6+UI8/HjHD2FbcODUCUTzXbuRigLkN74BXc/usb9ro=");
 
         mockMvc.perform(MockMvcRequestBuilders
                         .post("/api/v1/users/login")

@@ -33,7 +33,7 @@ public class AdminControllerTests extends BaseTest {
 
     @Test
     public void test_login_with_invalid_password() throws Exception {
-        val loginRequest = new LoginRequest("admin@gmail.com", "admin1234");
+        val loginRequest = new LoginRequest("admin@gmail.com", "a6f5f5f066ba27be5e37605a3ac6db39:52+k05cNYO08XT5iaOGPWLKcqVfUKl60eBp2/yd9Y2aoFV2nq4Pw2z5M/4XngjhXkeKgEBglt3uNOc0ETbu6q3J804htJQMzp9yssCikvSKmalIQwCT4rwzoFXxQtWriZ6+UI8/HjHD2FbcODUCUTzXbuRigLkN74BXc/usb9ro=");
 
         mockMvc.perform(MockMvcRequestBuilders
                         .post("/api/v1/admins/login")

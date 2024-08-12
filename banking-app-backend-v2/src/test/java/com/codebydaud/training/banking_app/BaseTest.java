@@ -9,9 +9,13 @@ import com.codebydaud.training.banking_app.service.TokenService;
 import com.codebydaud.training.banking_app.util.ApiMessages;
 import com.codebydaud.training.banking_app.util.JsonUtil;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
+import io.github.cdimascio.dotenv.Dotenv;
 import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import net.datafaker.Faker;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,18 +36,35 @@ import jakarta.mail.internet.MimeMultipart;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 import java.io.IOException;
+import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 
 import static org.springframework.security.core.userdetails.User.withUsername;
 
-@SpringBootTest
-//@TestPropertySource(locations = "classpath:application.yaml")
+@SpringBootTest(properties = { "ENV_VARIABLE=SECRET_KEY" })
 @ActiveProfiles("test")
 @Transactional
 @AutoConfigureMockMvc
+@Slf4j
 public abstract class BaseTest {
+
+
+    @BeforeAll
+    static void initAll() {
+        Dotenv dotenv = Dotenv.load();
+        System.setProperty("SECRET_KEY", dotenv.get("SECRET_KEY"));
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        System.clearProperty("SECRET_KEY");
+    }
+
 
     @Autowired
     protected MockMvc mockMvc;
@@ -107,6 +128,46 @@ public abstract class BaseTest {
         return faker.number().digits(4);
     }
 
+    public static String encrypt(String plainTextPassword) throws Exception {
+        final String ALGORITHM = "AES/CBC/PKCS5PADDING";
+        Cipher cipher = Cipher.getInstance(ALGORITHM);
+        SecretKeySpec secretKeySpec = new SecretKeySpec(getSecretKey().getBytes("UTF-8"), "AES");
+
+        IvParameterSpec ivSpec = new IvParameterSpec(generateIv());
+
+        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, ivSpec);
+
+        byte[] encrypted = cipher.doFinal(plainTextPassword.getBytes("UTF-8"));
+        return bytesToHex(ivSpec.getIV()) + ":" + Base64.getEncoder().encodeToString(encrypted);
+    }
+
+
+    private static byte[] generateIv() {
+        byte[] iv = new byte[16];
+        new java.security.SecureRandom().nextBytes(iv);
+        return iv;
+    }
+
+    private static String getSecretKey() {
+        String secretKey = System.getProperty("SECRET_KEY");
+        log.info(System.getProperty("SECRET_KEY"));
+        if (secretKey == null || secretKey.isEmpty()) {
+            throw new IllegalStateException("Secret key not set in environment variables");
+        }
+        return secretKey;
+    }
+
+    private static String bytesToHex(byte[] bytes) {
+        StringBuilder hexString = new StringBuilder();
+        for (byte b : bytes) {
+            String hex = Integer.toHexString(0xff & b);
+            if (hex.length() == 1) hexString.append('0');
+            hexString.append(hex);
+        }
+        return hexString.toString();
+    }
+
+
     protected String generateToken(String username, String password) {
         return tokenService.generateToken(
                 withUsername(username).password(password).build());
@@ -145,7 +206,9 @@ public abstract class BaseTest {
             throws Exception {
         val user = createAndRegisterUser();
         val accountNumber = userRepository.findByEmail(user.getEmail()).get().getAccount().getAccountNumber();
-        val loginRequest = new LoginRequest(accountNumber, user.getPassword());
+        String password=encrypt(user.getPassword());
+        log.info(password);
+        val loginRequest = new LoginRequest(accountNumber, password);
 
         val loginResult = mockMvc.perform(MockMvcRequestBuilders
                         .post("/api/v1/users/login")
@@ -175,7 +238,8 @@ public abstract class BaseTest {
     }
 
     protected String LoginAdmin() throws Exception {
-        val loginRequest = new LoginRequest("admin@gmail.com", "Admin@123");
+        String password=encrypt("Admin@123");
+        val loginRequest = new LoginRequest("admin@gmail.com", password);
 
         val loginResult = mockMvc.perform(MockMvcRequestBuilders
                         .post("/api/v1/admins/login")

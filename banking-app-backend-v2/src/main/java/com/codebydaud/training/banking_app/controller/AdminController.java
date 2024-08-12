@@ -26,7 +26,7 @@ public class AdminController {
 
     @PostMapping("/admins/login")
     public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest)
-            throws InvalidTokenException {
+            throws Exception {
         return adminService.login(loginRequest);
     }
 

@@ -7,6 +7,7 @@ import com.codebydaud.training.banking_app.exception.InvalidTokenException;
 import com.codebydaud.training.banking_app.exception.UserInvalidException;
 import com.codebydaud.training.banking_app.repository.UserRepository;
 import com.codebydaud.training.banking_app.util.ApiMessages;
+import com.codebydaud.training.banking_app.util.EncryptionUtil;
 import com.codebydaud.training.banking_app.util.JsonUtil;
 import com.codebydaud.training.banking_app.util.ValidationUtil;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import lombok.val;
 import org.springframework.web.servlet.ModelAndView;
+
 
 
 @Service
@@ -48,7 +50,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseEntity<String> login(LoginRequest loginRequest, String requestMaker)
-            throws InvalidTokenException {
+            throws Exception {
         if (requestMaker == null) {
             requestMaker = "customer";
         }
@@ -89,11 +91,16 @@ public class UserServiceImpl implements UserService {
         return saveUser(savedUser);
     }
 
-    private User authenticateUser(LoginRequest loginRequest, String requestMaker) {
+    private User authenticateUser(LoginRequest loginRequest, String requestMaker) throws Exception {
         val user = getUserByIdentifier(loginRequest.identifier());
+        String password="";
+        if(!loginRequest.password().isEmpty())
+        {
+            password=EncryptionUtil.decrypt(loginRequest.password());
+        }
         if (user.getRole().equals(requestMaker)) {
             authenticationManager
-                    .authenticate(new UsernamePasswordAuthenticationToken(user.getAccount() == null ? loginRequest.identifier() : user.getAccount().getAccountNumber(), loginRequest.password()));
+                    .authenticate(new UsernamePasswordAuthenticationToken(user.getAccount() == null ? loginRequest.identifier() : user.getAccount().getAccountNumber(), password));
             return user;
         } else {
             throw new UserInvalidException(

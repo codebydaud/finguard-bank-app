@@ -34,7 +34,7 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest)
-            throws InvalidTokenException {
+            throws Exception {
         return userService.login(loginRequest, null);
     }
 

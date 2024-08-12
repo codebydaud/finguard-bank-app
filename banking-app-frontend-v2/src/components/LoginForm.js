@@ -6,6 +6,7 @@ import { useAuth } from "../contexts/AuthContext";
 import Button from "./Button";
 import Form from "./Form";
 import TextInput from "./TextInput";
+import { encryptPassword } from "./EncryptionUtil";
 
 export default function LoginForm() {
   const [identifier, setIdentifier] = useState("");
@@ -22,7 +23,8 @@ export default function LoginForm() {
     try {
       setError("");
       setLoading(true);
-      await login(identifier, password);
+      const encryptedPassword=encryptPassword(password);
+      await login(identifier, encryptedPassword);
       navigate("/users/dashboard");
     } catch (err) {
       setLoading(false);

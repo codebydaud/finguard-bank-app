@@ -41,7 +41,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public ResponseEntity<String> login(LoginRequest loginRequest)
-            throws InvalidTokenException {
+            throws Exception {
         return userService.login(loginRequest, "admin");
     }
 

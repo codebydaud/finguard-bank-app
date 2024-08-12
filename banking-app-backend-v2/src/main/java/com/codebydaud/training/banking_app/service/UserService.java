@@ -13,7 +13,7 @@ public interface UserService {
 
 
     ResponseEntity<String> login(LoginRequest loginRequest, String requestMaker)
-            throws InvalidTokenException;
+            throws Exception;
 
     User saveUser(User user);
 

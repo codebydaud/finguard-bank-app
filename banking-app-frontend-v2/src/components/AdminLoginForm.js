@@ -6,6 +6,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import Button from "./Button";
 import Form from "./Form";
 import TextInput from "./TextInput";
+import { encryptPassword } from "./EncryptionUtil";
 
 export default function AdminLoginForm() {
   const [identifier, setIdentifier] = useState("");
@@ -23,7 +24,8 @@ export default function AdminLoginForm() {
     try {
       setError("");
       setLoading(true);
-      await adminLogin(identifier, password);
+      const encryptedPassword = encryptPassword(password);
+      await adminLogin(identifier, encryptedPassword);
     } catch (err) {
       setLoading(false);
       setError("Invalid credentials!");

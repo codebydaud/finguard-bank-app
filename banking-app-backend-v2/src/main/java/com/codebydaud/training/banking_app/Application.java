@@ -16,6 +16,8 @@ public class Application {
         System.setProperty("JWT_SECRET", dotenv.get("JWT_SECRET"));
         System.setProperty("JWT_EXPIRATION", dotenv.get("JWT_EXPIRATION"));
 
+        System.setProperty("SECRET_KEY", dotenv.get("SECRET_KEY"));
+
         SpringApplication.run(Application.class, args);
     }
 

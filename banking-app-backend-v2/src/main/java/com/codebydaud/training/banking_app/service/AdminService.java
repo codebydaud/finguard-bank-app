@@ -16,7 +16,7 @@ import java.util.List;
 public interface AdminService {
 
     ResponseEntity<String> login(LoginRequest loginRequest)
-            throws InvalidTokenException;
+            throws Exception;
 
 //    List<AccountResponse> getAllAccounts();
     Page<AccountResponse> getAllAccounts(int page, int size);
