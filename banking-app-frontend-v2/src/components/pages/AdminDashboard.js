@@ -10,6 +10,10 @@ export default function AdminDashboard() {
   const [successMessage, setSuccessMessage] = useState("");
   const [deletedAccountNumber, setDeletedAccountNumber] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(0); // Added for pagination
+  const [pageSize, setPageSize] = useState(5); // Added for pagination
+  const [totalPages, setTotalPages] = useState(0); // Added for pagination
+
   const { currentAdmin, logout } = useAuth();
   const navigate = useNavigate();
 
@@ -23,14 +27,15 @@ export default function AdminDashboard() {
     async function fetchAccounts() {
       try {
         const response = await axios.get(
-          "http://localhost:8080/api/v1/accounts",
+          `http://localhost:8080/api/v1/accounts?page=${currentPage}&size=${pageSize}`, // Added pagination params
           {
             headers: {
               Authorization: `Bearer ${adminToken}`,
             },
           }
         );
-        setAccounts(response.data);
+        setAccounts(response.data.content); // Adjust according to your response structure
+        setTotalPages(response.data.totalPages); // Adjust according to your response structure
       } catch (err) {
         console.error("Failed to fetch accounts:", err);
       } finally {
@@ -39,7 +44,7 @@ export default function AdminDashboard() {
     }
 
     fetchAccounts();
-  }, [navigate]);
+  }, [navigate, currentPage, pageSize]);
 
   const handleViewClick = (accountNumber) => {
     navigate(`/${accountNumber}/profile`);
@@ -78,6 +83,22 @@ export default function AdminDashboard() {
     setSearchQuery(e.target.value);
   };
 
+  const handleNextPage = () => {
+    if (currentPage < totalPages - 1) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   const filteredAccounts = accounts.filter((account) =>
     account.accountHolderName.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -92,7 +113,6 @@ export default function AdminDashboard() {
       <div className="search-bar-container">
         <input
           type="text"
-          
           placeholder="Search by account holder name"
           value={searchQuery}
           onChange={handleSearchChange}
@@ -152,6 +172,34 @@ export default function AdminDashboard() {
           ))}
         </ul>
       )}
+      <div className="pagination-controls">
+        <button
+          onClick={handlePreviousPage}
+          disabled={currentPage === 0}
+          className="pagination-button"
+        >
+          Previous
+        </button>
+        {Array.from({ length: totalPages }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => handlePageChange(index)}
+            className={`pagination-button ${
+              index === currentPage ? "active" : ""
+            }`}
+            disabled={index === currentPage}
+          >
+            {index + 1}
+          </button>
+        ))}
+        <button
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages - 1}
+          className="pagination-button"
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 }

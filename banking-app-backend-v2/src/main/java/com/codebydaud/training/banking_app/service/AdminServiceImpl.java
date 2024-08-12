@@ -17,15 +17,15 @@ import com.codebydaud.training.banking_app.util.ValidationUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
-
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -45,20 +45,31 @@ public class AdminServiceImpl implements AdminService {
         return userService.login(loginRequest, "admin");
     }
 
-    public List<AccountResponse> getAllAccounts() {
+//    public List<AccountResponse> getAllAccounts() {
+////        List<Account> accounts = accountRepository.findAll();
+////        return accounts.stream()
+////                .map(AccountResponse::new)
+////                .collect(Collectors.toList());
+//
 //        List<Account> accounts = accountRepository.findAll();
 //        return accounts.stream()
-//                .map(AccountResponse::new)
+//                .map(account -> {
+//                    Optional<User> user = userRepository.findByAccountAccountNumber(account.getAccountNumber());
+//                    String accountHolderName = user.isPresent() ? user.get().getName() : "Unknowns";
+//                    return new AccountResponse(account, accountHolderName);
+//                })
 //                .collect(Collectors.toList());
+//    }
 
-        List<Account> accounts = accountRepository.findAll();
-        return accounts.stream()
-                .map(account -> {
-                    Optional<User> user = userRepository.findByAccountAccountNumber(account.getAccountNumber());
-                    String accountHolderName = user.isPresent() ? user.get().getName() : "Unknowns";
-                    return new AccountResponse(account, accountHolderName);
-                })
-                .collect(Collectors.toList());
+    public Page<AccountResponse> getAllAccounts(int page, int size) {
+
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Account> accountPage = accountRepository.findAll(pageable);
+        return accountPage.map(account -> {
+            Optional<User> user = userRepository.findByAccountAccountNumber(account.getAccountNumber());
+            String accountHolderName = user.isPresent() ? user.get().getName() : "Unknown";
+            return new AccountResponse(account, accountHolderName);
+        });
     }
 
     @Override

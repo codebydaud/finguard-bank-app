@@ -6,6 +6,7 @@ import com.codebydaud.training.banking_app.dto.TransactionDTO;
 import com.codebydaud.training.banking_app.dto.UserResponse;
 import com.codebydaud.training.banking_app.entity.User;
 import com.codebydaud.training.banking_app.exception.InvalidTokenException;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,7 +19,8 @@ public interface AdminService {
     ResponseEntity<String> login(LoginRequest loginRequest)
             throws InvalidTokenException;
 
-    List<AccountResponse> getAllAccounts();
+//    List<AccountResponse> getAllAccounts();
+    Page<AccountResponse> getAllAccounts(int page, int size);
 
     UserResponse getUserDetailsByAccountNumber(String accountNumber);
 
