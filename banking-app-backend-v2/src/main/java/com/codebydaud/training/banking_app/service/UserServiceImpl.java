@@ -11,6 +11,7 @@ import com.codebydaud.training.banking_app.util.JsonUtil;
 import com.codebydaud.training.banking_app.util.ValidationUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,6 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import lombok.val;
 import org.springframework.web.servlet.ModelAndView;
+
 
 @Service
 @Slf4j
@@ -53,7 +55,11 @@ public class UserServiceImpl implements UserService {
         log.info("Request Maker : " + requestMaker);
         val user = authenticateUser(loginRequest, requestMaker);
         val token = generateAndSaveToken(user.getAccount() == null ? user.getEmail() : user.getAccount().getAccountNumber());
-        return ResponseEntity.ok(String.format(ApiMessages.TOKEN_ISSUED_SUCCESS.getMessage(), token));
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Bearer " + token);
+
+        return ResponseEntity.ok().headers(headers).body("Login Successfull");
     }
 
     @Override

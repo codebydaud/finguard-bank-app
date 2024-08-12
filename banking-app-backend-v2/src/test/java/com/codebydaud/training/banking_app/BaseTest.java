@@ -15,6 +15,7 @@ import net.datafaker.Faker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
@@ -153,10 +154,11 @@ public abstract class BaseTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn();
 
-        val responseBody = loginResult.getResponse().getContentAsString();
-        String token = JsonPath.read(responseBody, "$.token");
+//        val responseBody = loginResult.getResponse().getContentAsString();
+//        String token = JsonPath.read(responseBody, "$.token");
 
-
+        String authHeader = loginResult.getResponse().getHeader(HttpHeaders.AUTHORIZATION);
+        String token = authHeader.substring(7);
 
         val userDetails = new HashMap<String, String>();
         userDetails.put("name", user.getName());
@@ -182,8 +184,9 @@ public abstract class BaseTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn();
 
-        val responseBody = loginResult.getResponse().getContentAsString();
-        return JsonPath.read(responseBody, "$.token");
+        String token;
+        String authHeader = loginResult.getResponse().getHeader(HttpHeaders.AUTHORIZATION);
+        return token = authHeader.substring(7);
     }
 
     protected HashMap<String, String> createAccount() {

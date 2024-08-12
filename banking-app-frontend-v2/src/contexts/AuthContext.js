@@ -64,7 +64,7 @@ export function AuthProvider({ children }) {
         { identifier, password },
         { headers: { "Content-Type": "application/json" } }
       );
-      const { token } = response.data;
+      const token = response.headers["authorization"].split(" ")[1];
       localStorage.setItem("userAuthToken", token);
       await fetchUserProfile();
       console.log("Navigating to /users/dashboard");
@@ -81,7 +81,7 @@ export function AuthProvider({ children }) {
         { identifier, password },
         { headers: { "Content-Type": "application/json" } }
       );
-      const { token } = response.data;
+      const token = response.headers["authorization"].split(" ")[1];
       localStorage.setItem("adminAuthToken", token);
       setCurrentAdmin(response.data);
       navigate("/admins/dashboard", { replace: true });

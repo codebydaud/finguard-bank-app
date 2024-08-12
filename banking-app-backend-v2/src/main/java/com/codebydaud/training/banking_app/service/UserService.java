@@ -6,7 +6,6 @@ import com.codebydaud.training.banking_app.exception.InvalidTokenException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Map;
 
 public interface UserService {
 
