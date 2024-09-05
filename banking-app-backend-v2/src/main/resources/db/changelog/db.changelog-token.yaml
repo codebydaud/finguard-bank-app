@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: schema-token-0.0.1
+      author: banking app team
+      changes:
+        - createTable:
+            tableName: tokens
+            columns:
+              - column:
+                  name: token_id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: token
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: CURRENT_TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: expiry_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: account_id
+                  type: BIGINT
+        - addForeignKeyConstraint:
+            baseTableName: tokens
+            baseColumnNames: account_id
+            constraintName: fk_tokens_account
+            referencedTableName: accounts
+            referencedColumnNames: account_id

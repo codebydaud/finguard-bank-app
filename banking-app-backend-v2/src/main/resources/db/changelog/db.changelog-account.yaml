@@ -1,0 +1,94 @@
+databaseChangeLog:
+  - changeSet:
+      id: schema-account-0.0.1
+      author: banking app team
+      changes:
+        - createTable:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: account_number
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: balance
+                  type: decimal(10,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: DATETIME
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: accounts
+            constraintName: fk_accounts_users
+            referencedTableName: users
+            baseColumnNames: user_id
+            referencedColumnNames: user_id
+            onDelete: CASCADE
+
+  - changeSet:
+      id: data-account-0.0.1
+      author: banking app team
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_number
+                  value: '7618324681'
+              - column:
+                  name: balance
+                  value: '1000.00'
+              - column:
+                  name: user_id
+                  value: '2'  # Assuming this user_id corresponds to a user in the 'users' table
+              - column:
+                  name: created_at
+                  value: '2000-01-01T12:00:00'
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_number
+                  value: '7634524681'
+              - column:
+                  name: balance
+                  value: '500.00'
+              - column:
+                  name: user_id
+                  value: '3'
+              - column:
+                  name: created_at
+                  value: '2005-01-01T12:00:00'
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_number
+                  value: '7321832468'
+              - column:
+                  name: balance
+                  value: '50000.00'
+              - column:
+                  name: user_id
+                  value: '4'
+              - column:
+                  name: created_at
+                  value: '2008-01-01T12:00:00'

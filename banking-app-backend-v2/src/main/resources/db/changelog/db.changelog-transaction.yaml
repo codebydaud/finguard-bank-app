@@ -1,0 +1,63 @@
+databaseChangeLog:
+  - changeSet:
+      id: schema-token-0.0.1
+      author: banking app team
+      changes:
+        - createTable:
+            tableName: transactions
+            columns:
+              - column:
+                  name: transaction_id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: amount
+                  type: DOUBLE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: transaction_type
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: transaction_date
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: source_account_id
+                  type: BIGINT
+                  constraints:
+                    nullable: true
+
+              - column:
+                  name: target_account_id
+                  type: BIGINT
+                  constraints:
+                    nullable: true
+              - column:
+                  name: description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: transactions
+            constraintName: fk_source_account
+            referencedTableName: accounts
+            baseColumnNames: source_account_id
+            referencedColumnNames: account_id
+            onDelete: CASCADE
+            onUpdate: CASCADE
+        - addForeignKeyConstraint:
+            baseTableName: transactions
+            constraintName: fk_target_account
+            referencedTableName: accounts
+            baseColumnNames: target_account_id
+            referencedColumnNames: account_id
+            onDelete: CASCADE
+            onUpdate: CASCADE

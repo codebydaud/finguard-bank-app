@@ -1,0 +1,56 @@
+.admin-container {
+  max-height: 500px; 
+  overflow-y: auto; 
+  padding: 20px;
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  background-color: var(
+    --successGreen
+  ); 
+}
+
+.accounts-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.account-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 20px; 
+  font-size: 20px; 
+  background-color: #fff;
+  border-radius: 8px; 
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.account-item:last-child {
+  border-bottom: none; 
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.view-button {
+  background-color: var(--successGreen); 
+  color: #fff; 
+  border: none; 
+  padding: 10px 15px; 
+  font-size: 16px;
+  font-weight: bold; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  position: absolute; 
+  right: 20px; 
+  bottom: 15px; 
+}
+
+.view-button:hover {
+  background-color: #fff; 
+  color: var(--successGreen); 
+  border: 1px solid var(--successGreen); 
+}

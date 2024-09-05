@@ -1,0 +1,37 @@
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/bank_v2
+    username: ${DB_PROD_USERNAME}
+    password: ${DB_PROD_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  h2:
+    console:
+      enabled: false
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION}
+
+api:
+  security:
+    ignored: /api/v1/users,
+      /api/v1/users/login,
+      /api/v1/admins/login,
+      /h2-console,
+      /h2-console/**,
+      swagger-ui.html,
+      /swagger-ui/**,
+      /actuator/**
+
+
+
