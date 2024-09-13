@@ -1,4 +1,5 @@
-# Bank-App-v2
+# bank-app-v2
+
 Bank App
 
 Frontend: React JS
