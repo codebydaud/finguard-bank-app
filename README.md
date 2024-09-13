@@ -1,9 +1,9 @@
 # Bank App
-# Overview
+## Overview
 The Bank App is a simple online banking platform built using modern web technologies. It supports two types of users: Admin and Customer. Customers can create accounts, transfer funds, view their transactions, and manage their profiles, while admins can manage customer accounts and view transactions. The app uses JWT (JSON Web Token) for secure authentication and authorization.
 
-# Features
-## Customer Functionalities:
+## Features
+### Customer Functionalities:
 Create an Account: Sign up for a new account <br/>
 Login: Authenticate using credentials (with JWT token handling). <br/>
 Fund Transfer: Transfer funds between accounts. <br/>
@@ -11,7 +11,7 @@ View Transaction History: View the transaction history of your account. <br/>
 View Profile: View and manage your personal information. <br/>
 View Balance: Check your account balance. <br/>
 Logout: Securely log out from the application. <br/>
-## Admin Functionalities:
+### Admin Functionalities:
 Login: Authenticate as an admin using credentials (with JWT token handling). <br/>
 Create an Account for Customer: Add new customer accounts. <br/>
 View All Accounts: View details of all customer accounts. <br/>
@@ -19,30 +19,30 @@ View Transactions of Customers: Access the transaction history of any customer. 
 Update Customer Profile: Edit personal information of any customer. <br/>
 Delete an Account: Remove a customer account. <br/>
 Logout: Securely log out from the admin panel. <br/>
-# Technology Stack
-## Frontend:
+## Technology Stack
+### Frontend:
 
 React.js (with Material-UI for styling) <br/>
 Axios for API calls <br/>
 React Router DOM for routing <br/>
-## Backend:
+### Backend:
 
 Spring Boot (REST API) <br/>
 Spring Security for JWT-based authentication and authorization <br/>
-## Database:
+### Database:
 
 MySQL
-## Security:
+### Security:
 
 
 JWT Authentication: The app uses JSON Web Tokens for user authentication. After logging in, the backend issues a JWT, which is stored in the frontend (e.g., localStorage). Each subsequent request to the server includes this token for user identification. <br/>
 Role-based Access Control: There are two roles: Admin and Customer. Specific routes and functionalities are protected based on the user’s role. <br/>
 
-# VIDEO DEMO
+## VIDEO DEMO
 
 [Bank-App.webm](https://github.com/user-attachments/assets/a8ad14b6-70ef-4f7b-a815-b2322358022a)
 
-# Screenshots
+## Screenshots
 
 ### Customer Login
 
