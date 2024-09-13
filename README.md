@@ -31,7 +31,7 @@ The Bank App is a simple online banking platform built using modern web technolo
 * React Router DOM for routing <br/>
 ### Backend:
 
-* Spring Boot (REST API) <br/>
+* Java Spring Boot (REST API) <br/>
 * Spring Security for JWT-based authentication and authorization <br/>
 ### Database:
 
