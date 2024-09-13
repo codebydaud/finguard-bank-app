@@ -1,22 +1,40 @@
 # bank-app-v2
+Overview
+The Bank App is a simple online banking platform built using modern web technologies. It supports two types of users: Admin and Customer. Customers can create accounts, transfer funds, view their transactions, and manage their profiles, while admins can manage customer accounts and view transactions. The app uses JWT (JSON Web Token) for secure authentication and authorization.
 
-Bank App
+Features
+Customer Functionalities:
+Create an Account: Sign up for a new account.
+Login: Authenticate using credentials (with JWT token handling).
+Fund Transfer: Transfer funds between accounts.
+View Transaction History: View the transaction history of your account.
+View Profile: View and manage your personal information.
+View Balance: Check your account balance.
+Logout: Securely log out from the application.
+Admin Functionalities:
+Login: Authenticate as an admin using credentials (with JWT token handling).
+Create an Account for Customer: Add new customer accounts.
+View All Accounts: View details of all customer accounts.
+View Transactions of Customers: Access the transaction history of any customer.
+Update Customer Profile: Edit personal information of any customer.
+Delete an Account: Remove a customer account.
+Logout: Securely log out from the admin panel.
+Technology Stack
+Frontend:
 
-Frontend: React JS
+React.js (with Material-UI for styling)
+Axios for API calls
+React Router DOM for routing
+Backend:
 
-Backend: Spring Boot
+Spring Boot (REST API)
+Spring Security for JWT-based authentication and authorization
+Database:
 
-Database: MySQL
-
-
-
-User Types: Admin, Customer
-
-
-
-Customer Functionalities: Create an Account, Login, Fund Transfer, View Transactions History, View Profile, View Balance, Logout
-
-Admin Functionalities: Login, Create an Account for Customer, View All Accounts, View Transactions of Customer, Update Profile of Customer, Delete an Account, Logout
+MySQL
+Security
+JWT Authentication: The app uses JSON Web Tokens for user authentication. After logging in, the backend issues a JWT, which is stored in the frontend (e.g., localStorage). Each subsequent request to the server includes this token for user identification.
+Role-based Access Control: There are two roles: Admin and Customer. Specific routes and functionalities are protected based on the user’s role.
 
 
 
