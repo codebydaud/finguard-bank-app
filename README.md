@@ -48,12 +48,6 @@ The Bank App is a simple online banking platform built using modern web technolo
 
 ![User_Login](https://github.com/user-attachments/assets/b929779f-993d-402f-87bd-855a0652aa65)
 
-<div>
-  <img width="50%" src="https://github.com/user-attachments/assets/b929779f-993d-402f-87bd-855a0652aa65" alt="Sample image compressed 50%" title="Sample image compressed 50%">
-  <img width="50%" src="https://github.com/user-attachments/assets/5e4c2dd0-1cbc-464a-92dc-ec7fe0e9216f" alt="Sample image compressed 50%" title="Sample image compressed 50%">
-</div>
-
-
 ### Customer Signup
 
 ![User_Signup](https://github.com/user-attachments/assets/5e4c2dd0-1cbc-464a-92dc-ec7fe0e9216f)
@@ -69,7 +63,7 @@ The Bank App is a simple online banking platform built using modern web technolo
 ![User_Dashboard](https://github.com/user-attachments/assets/60fc8b83-47e6-4fad-9d86-241fd1e7535d)
 
 
-## Customer Fund Transfer
+### Customer Fund Transfer
 
 ![User_FundTransfer](https://github.com/user-attachments/assets/5b05ee17-a1fe-456b-84de-ddbb714dfa3e)
 
