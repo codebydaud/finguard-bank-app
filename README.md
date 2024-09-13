@@ -40,7 +40,7 @@ Role-based Access Control: There are two roles: Admin and Customer. Specific rou
 
 # VIDEO DEMO
 
-[Bank-App.webm](https://github.com/user-attachments/assets/a8ad14b6-70ef-4f7b-a815-b2322358022a) <br/>
+[Bank-App.webm](https://github.com/user-attachments/assets/a8ad14b6-70ef-4f7b-a815-b2322358022a)
 
 # Screenshots
 
