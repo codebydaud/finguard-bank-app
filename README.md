@@ -22,21 +22,21 @@ The Bank App is a simple online banking platform built using modern web technolo
 ## Technology Stack
 ### Frontend:
 
-React.js (with Material-UI for styling) <br/>
-Axios for API calls <br/>
-React Router DOM for routing <br/>
+* React.js (with Material-UI for styling) <br/>
+* Axios for API calls <br/>
+* React Router DOM for routing <br/>
 ### Backend:
 
-Spring Boot (REST API) <br/>
-Spring Security for JWT-based authentication and authorization <br/>
+* Spring Boot (REST API) <br/>
+* Spring Security for JWT-based authentication and authorization <br/>
 ### Database:
 
-MySQL
+* MySQL
 ### Security:
 
 
-JWT Authentication: The app uses JSON Web Tokens for user authentication. After logging in, the backend issues a JWT, which is stored in the frontend (e.g., localStorage). Each subsequent request to the server includes this token for user identification. <br/>
-Role-based Access Control: There are two roles: Admin and Customer. Specific routes and functionalities are protected based on the user’s role. <br/>
+* JWT Authentication: The app uses JSON Web Tokens for user authentication. After logging in, the backend issues a JWT, which is stored in the frontend (e.g., localStorage). Each subsequent request to the server includes this token for user identification. <br/>
+* Role-based Access Control: There are two roles: Admin and Customer. Specific routes and functionalities are protected based on the user’s role. <br/>
 
 ## VIDEO DEMO
 
