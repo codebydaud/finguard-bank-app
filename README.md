@@ -11,7 +11,7 @@ View Transaction History: View the transaction history of your account. <br/>
 View Profile: View and manage your personal information. <br/>
 View Balance: Check your account balance. <br/>
 Logout: Securely log out from the application. <br/>
-# Admin Functionalities:
+## Admin Functionalities:
 Login: Authenticate as an admin using credentials (with JWT token handling). <br/>
 Create an Account for Customer: Add new customer accounts. <br/>
 View All Accounts: View details of all customer accounts. <br/>
