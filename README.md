@@ -50,6 +50,7 @@ The Bank App is a simple online banking platform built using modern web technolo
 
 <div>
   <img width="50%" src="https://github.com/user-attachments/assets/b929779f-993d-402f-87bd-855a0652aa65" alt="Sample image compressed 50%" title="Sample image compressed 50%">
+  <img width="50%" src="https://github.com/user-attachments/assets/5e4c2dd0-1cbc-464a-92dc-ec7fe0e9216f" alt="Sample image compressed 50%" title="Sample image compressed 50%">
 </div>
 
 
