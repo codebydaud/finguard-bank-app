@@ -2,6 +2,10 @@
 ## Overview
 The Bank App is a simple online banking platform built using modern web technologies. It supports two types of users: Admin and Customer. Customers can create accounts, transfer funds, view their transactions, and manage their profiles, while admins can manage customer accounts and view transactions. The app uses JWT (JSON Web Token) for secure authentication and authorization.
 
+## VIDEO DEMO
+
+[Bank-App.webm](https://github.com/user-attachments/assets/a8ad14b6-70ef-4f7b-a815-b2322358022a)
+
 ## Features
 ### Customer Functionalities:
 * Create an Account: Sign up for a new account <br/>
@@ -37,10 +41,6 @@ The Bank App is a simple online banking platform built using modern web technolo
 
 * JWT Authentication: The app uses JSON Web Tokens for user authentication. After logging in, the backend issues a JWT, which is stored in the frontend (e.g., localStorage). Each subsequent request to the server includes this token for user identification. <br/>
 * Role-based Access Control: There are two roles: Admin and Customer. Specific routes and functionalities are protected based on the user’s role. <br/>
-
-## VIDEO DEMO
-
-[Bank-App.webm](https://github.com/user-attachments/assets/a8ad14b6-70ef-4f7b-a815-b2322358022a)
 
 ## Screenshots
 
