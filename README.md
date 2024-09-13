@@ -5,20 +5,20 @@ The Bank App is a simple online banking platform built using modern web technolo
 ## Features
 ### Customer Functionalities:
 * Create an Account: Sign up for a new account <br/>
-Login: Authenticate using credentials (with JWT token handling). <br/>
-Fund Transfer: Transfer funds between accounts. <br/>
-View Transaction History: View the transaction history of your account. <br/>
-View Profile: View and manage your personal information. <br/>
-View Balance: Check your account balance. <br/>
-Logout: Securely log out from the application. <br/>
+* Login: Authenticate using credentials (with JWT token handling). <br/>
+* Fund Transfer: Transfer funds between accounts. <br/>
+* View Transaction History: View the transaction history of your account. <br/>
+* View Profile: View and manage your personal information. <br/>
+* View Balance: Check your account balance. <br/>
+* Logout: Securely log out from the application. <br/>
 ### Admin Functionalities:
-Login: Authenticate as an admin using credentials (with JWT token handling). <br/>
-Create an Account for Customer: Add new customer accounts. <br/>
-View All Accounts: View details of all customer accounts. <br/>
-View Transactions of Customers: Access the transaction history of any customer. <br/>
-Update Customer Profile: Edit personal information of any customer. <br/>
-Delete an Account: Remove a customer account. <br/>
-Logout: Securely log out from the admin panel. <br/>
+* Login: Authenticate as an admin using credentials (with JWT token handling). <br/>
+* Create an Account for Customer: Add new customer accounts. <br/>
+* View All Accounts: View details of all customer accounts. <br/>
+* View Transactions of Customers: Access the transaction history of any customer. <br/>
+* Update Customer Profile: Edit personal information of any customer. <br/>
+* Delete an Account: Remove a customer account. <br/>
+* Logout: Securely log out from the admin panel. <br/>
 ## Technology Stack
 ### Frontend:
 
