@@ -1,4 +1,4 @@
-# bank-app-v2
+# Bank App
 # Overview
 The Bank App is a simple online banking platform built using modern web technologies. It supports two types of users: Admin and Customer. Customers can create accounts, transfer funds, view their transactions, and manage their profiles, while admins can manage customer accounts and view transactions. The app uses JWT (JSON Web Token) for secure authentication and authorization.
 
