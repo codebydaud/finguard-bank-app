@@ -32,7 +32,7 @@ Spring Security for JWT-based authentication and authorization <br/>
 ## Database:
 
 MySQL
-# Security
+## Security:
 
 
 JWT Authentication: The app uses JSON Web Tokens for user authentication. After logging in, the backend issues a JWT, which is stored in the frontend (e.g., localStorage). Each subsequent request to the server includes this token for user identification. <br/>
