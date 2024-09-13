@@ -4,7 +4,9 @@
 Bank App
 
 Frontend: React JS
+
 Backend: Spring Boot
+
 Database: MySQL
 
 User Types: Admin, Customer
