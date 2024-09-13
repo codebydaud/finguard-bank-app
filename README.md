@@ -8,7 +8,7 @@ The Bank App is a simple online banking platform built using modern web technolo
 
 ## Features
 ### Customer Functionalities:
-* Create an Account: Sign up for a new account <br/>
+* Create an Account: Sign up for a new account. <br/>
 * Login: Authenticate using credentials (with JWT token handling). <br/>
 * Fund Transfer: Transfer funds between accounts. <br/>
 * View Transaction History: View the transaction history of your account. <br/>
@@ -26,16 +26,16 @@ The Bank App is a simple online banking platform built using modern web technolo
 ## Technology Stack
 ### Frontend:
 
-* React.js (with Material-UI for styling) <br/>
-* Axios for API calls <br/>
-* React Router DOM for routing <br/>
+* React.js (with Material-UI for styling). <br/>
+* Axios for API calls. <br/>
+* React Router DOM for routing. <br/>
 ### Backend:
 
-* Java Spring Boot (REST API) <br/>
-* Spring Security for JWT-based authentication and authorization <br/>
+* Java Spring Boot (REST API). <br/>
+* Spring Security for JWT-based authentication and authorization. <br/>
 ### Database:
 
-* MySQL
+* MySQL.
 ### Security:
 
 
