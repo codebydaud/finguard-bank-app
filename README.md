@@ -4,7 +4,7 @@ The Bank App is a simple online banking platform built using modern web technolo
 
 # Features
 ## Customer Functionalities:
-Create an Account: Sign up for a new account
+Create an Account: Sign up for a new account <br/>
 Login: Authenticate using credentials (with JWT token handling).
 Fund Transfer: Transfer funds between accounts.
 View Transaction History: View the transaction history of your account.
