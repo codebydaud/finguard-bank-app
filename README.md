@@ -1,6 +1,4 @@
 # Bank-App-v2
-
-# Bank-App
 Bank App
 
 Frontend: React JS
@@ -9,11 +7,16 @@ Backend: Spring Boot
 
 Database: MySQL
 
+
+
 User Types: Admin, Customer
+
+
 
 Customer Functionalities: Create an Account, Login, Fund Transfer, View Transactions History, View Profile, View Balance, Logout
 
 Admin Functionalities: Login, Create an Account for Customer, View All Accounts, View Transactions of Customer, Update Profile of Customer, Delete an Account, Logout
+
 
 
 Customer Login
