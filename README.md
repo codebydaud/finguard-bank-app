@@ -5,37 +5,37 @@ The Bank App is a simple online banking platform built using modern web technolo
 # Features
 ## Customer Functionalities:
 Create an Account: Sign up for a new account <br/>
-Login: Authenticate using credentials (with JWT token handling).
-Fund Transfer: Transfer funds between accounts.
-View Transaction History: View the transaction history of your account.
-View Profile: View and manage your personal information.
-View Balance: Check your account balance.
-Logout: Securely log out from the application.
+Login: Authenticate using credentials (with JWT token handling). <br/>
+Fund Transfer: Transfer funds between accounts. <br/>
+View Transaction History: View the transaction history of your account. <br/>
+View Profile: View and manage your personal information. <br/>
+View Balance: Check your account balance. <br/>
+Logout: Securely log out from the application. <br/>
 # Admin Functionalities:
-Login: Authenticate as an admin using credentials (with JWT token handling).
-Create an Account for Customer: Add new customer accounts.
-View All Accounts: View details of all customer accounts.
-View Transactions of Customers: Access the transaction history of any customer.
-Update Customer Profile: Edit personal information of any customer.
-Delete an Account: Remove a customer account.
-Logout: Securely log out from the admin panel.
+Login: Authenticate as an admin using credentials (with JWT token handling). <br/>
+Create an Account for Customer: Add new customer accounts. <br/>
+View All Accounts: View details of all customer accounts. <br/>
+View Transactions of Customers: Access the transaction history of any customer. <br/>
+Update Customer Profile: Edit personal information of any customer. <br/>
+Delete an Account: Remove a customer account. <br/>
+Logout: Securely log out from the admin panel. <br/>
 # Technology Stack
 ## Frontend:
 
-React.js (with Material-UI for styling)
-Axios for API calls
-React Router DOM for routing
+React.js (with Material-UI for styling) <br/>
+Axios for API calls <br/>
+React Router DOM for routing <br/>
 ## Backend:
 
-Spring Boot (REST API)
-Spring Security for JWT-based authentication and authorization
+Spring Boot (REST API) <br/>
+Spring Security for JWT-based authentication and authorization <br/>
 ## Database:
 
 MySQL
 # Security
 
 
-JWT Authentication: The app uses JSON Web Tokens for user authentication. After logging in, the backend issues a JWT, which is stored in the frontend (e.g., localStorage). Each subsequent request to the server includes this token for user identification.
+JWT Authentication: The app uses JSON Web Tokens for user authentication. After logging in, the backend issues a JWT, which is stored in the frontend (e.g., localStorage). Each subsequent request to the server includes this token for user identification. <br/>
 Role-based Access Control: There are two roles: Admin and Customer. Specific routes and functionalities are protected based on the user’s role.
 
 
