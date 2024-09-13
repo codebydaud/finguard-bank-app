@@ -46,7 +46,7 @@ The Bank App is a simple online banking platform built using modern web technolo
 
 ### Customer Login
 
-![User_Login](https://github.com/user-attachments/assets/b929779f-993d-402f-87bd-855a0652aa65)
+![User_Login](https://github.com/user-attachments/assets/b929779f-993d-402f-87bd-855a0652aa65 | width=100)
 
 
 
