@@ -6,10 +6,6 @@ The Bank App is a simple online banking platform built using modern web technolo
 
 https://github.com/user-attachments/assets/662b0f41-5c17-4da4-9f3d-7225238d62aa
 
-|  Login                              |                                 |
-|-----------------------------------------|-----------------------------------------|
-| ![User_Login](https://github.com/user-attachments/assets/b929779f-993d-402f-87bd-855a0652aa65) | ![Image 2](https://github.com/rishavchanda/Trackify/assets/64485885/eded583f-0e0e-45a2-9f41-017c3d7cb74f) |
-
 
 ## Features
 ### Customer Functionalities:
@@ -48,6 +44,10 @@ https://github.com/user-attachments/assets/662b0f41-5c17-4da4-9f3d-7225238d62aa
 * Role-based Access Control: There are two roles: Admin and Customer. Specific routes and functionalities are protected based on the user’s role. <br/>
 
 ## Screenshots
+
+|  Customer Signup                              |  Customer Login                               |
+|-----------------------------------------|-----------------------------------------|
+| ![User_Signup](https://github.com/user-attachments/assets/5e4c2dd0-1cbc-464a-92dc-ec7fe0e9216f) | ![User_Login](https://github.com/user-attachments/assets/b929779f-993d-402f-87bd-855a0652aa65) |
 
 ### Customer Login
 
