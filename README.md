@@ -8,7 +8,7 @@ https://github.com/user-attachments/assets/662b0f41-5c17-4da4-9f3d-7225238d62aa
 
 |  Login                              |                                 |
 |-----------------------------------------|-----------------------------------------|
-| ![Image 1](https://github.com/rishavchanda/Trackify/assets/64485885/b8aae2e1-cb85-4d37-93f8-ca95e8141367) | ![Image 2](https://github.com/rishavchanda/Trackify/assets/64485885/eded583f-0e0e-45a2-9f41-017c3d7cb74f) |
+| ![User_Login](https://github.com/user-attachments/assets/b929779f-993d-402f-87bd-855a0652aa65) | ![Image 2](https://github.com/rishavchanda/Trackify/assets/64485885/eded583f-0e0e-45a2-9f41-017c3d7cb74f) |
 
 
 ## Features
