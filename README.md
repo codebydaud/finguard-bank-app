@@ -4,7 +4,8 @@ The Bank App is a simple online banking platform built using modern web technolo
 
 ## VIDEO DEMO
 
-[Bank-App.webm](https://github.com/user-attachments/assets/a8ad14b6-70ef-4f7b-a815-b2322358022a)
+https://github.com/user-attachments/assets/662b0f41-5c17-4da4-9f3d-7225238d62aa
+
 
 ## Features
 ### Customer Functionalities:
